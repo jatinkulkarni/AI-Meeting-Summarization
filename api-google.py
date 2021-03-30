@@ -21,3 +21,6 @@ except sr.UnknownValueError:
 except sr.RequestError as e:
     print("Could not request results from Google Speech Recognition service; {0}".format(e))
 
+f = open("transcript.txt", "w+")
+f.write(r.recognize_google(audio))
+f.close()
