@@ -1,7 +1,7 @@
 #Python 2.x program to transcribe an Audio file
 import speech_recognition as sr
   
-AUDIO_FILE = ("audio.wav")
+AUDIO_FILE = ("audio_datasets/gettysburg.wav")
   
 # use the audio file as the audio source
   
@@ -13,7 +13,7 @@ with sr.AudioFile(AUDIO_FILE) as source:
     audio = r.record(source)  
   
 try:
-    print("The audio file contains: " + r.recognize_google(audio))
+    print(r.recognize_google(audio))
   
 except sr.UnknownValueError:
     print("Google Speech Recognition could not understand audio")
@@ -21,6 +21,6 @@ except sr.UnknownValueError:
 except sr.RequestError as e:
     print("Could not request results from Google Speech Recognition service; {0}".format(e))
 
-f = open("transcript.txt", "w+")
+f = open("transcript1.txt", "w+")
 f.write(r.recognize_google(audio))
 f.close()
